@@ -2,6 +2,7 @@ td {
   border:1px solid black;
   text-align: center;
   max-width: 20px;
+  color: black;
 }
 .cell {
   max-width: 20px;
@@ -13,6 +14,7 @@ td:first-child {
 	border: none;
   text-align: left;
   font-weight: 800;
+  color: black;
 }  
 tr:hover {background-color: pink;}
 tr:hover:first-child {background-color: none;}
@@ -34,4 +36,14 @@ tr:hover:first-child {background-color: none;}
 }
 .align-center {
   text-align: center;
+}
+
+h1 {
+  padding: .5em;
+  margin: 0;
+  color: rgb(255, 161, 78);
+}
+h2 {
+  text-decoration: underline;
+  color: rgb(255, 161, 78);
 }

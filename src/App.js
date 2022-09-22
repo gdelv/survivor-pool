@@ -12,7 +12,7 @@ function App() {
 
   // }
   return (
-    <div className="App">
+    <div className="App" style={{backgroundImage:"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2Fa%2F6%2Fc%2F78774.jpg&f=1&nofb=1"}}>
       <h1 className="align-center">Week 3</h1>
       <div class="schedule-container">
         <div class="margin-left">

@@ -23,9 +23,9 @@ function App() {
           <h2>1PM Games</h2>
           <p><b>Saints</b> (1-1) @ <b>Panthers</b> (0-2)</p>
           <p><b>Texans</b> (0-1-1) @ <b>Bears</b> (1-1)</p>
-          <p><b>Chiefs</b> (2-0) @ <b>Colts</b> (0-1-1</p>
+          <p><b>Chiefs</b> (2-0) @ <b>Colts</b> (0-1-1)</p>
           <p><b>Bills</b> (2-0) @ <b>Dolphins</b> (2-0)</p>
-          <p><b>Lions</b> (1-1) @ <b>Vikings</b> (1-1</p>
+          <p><b>Lions</b> (1-1) @ <b>Vikings</b> (1-1)</p>
           <p><b>Ravens</b> (1-1) @ <b>Patriots</b> (1-1)</p>
           <p><b>Bengals</b> (0-2) @ <b>Jets</b> (1-1)</p>
           <p><b>Raiders</b> (0-2) @ <b>Titans</b> (1-1)</p>

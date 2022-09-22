@@ -49,6 +49,7 @@ function App() {
       </div>
 <br></br>
 <h1 className="align-center">Weekly Picks</h1>
+<h2 className="align-center">Rules</h2>
       <table style={{ width: "85%", height: "60vh", margin: "auto" }}>
         <tr>
           <th></th>

@@ -3,98 +3,46 @@ export const entries = [
         "name": "Giusseppe",
         "picks": [
             {
-                "teamChosen": "Packers",
-                "isCorrect": true
-            },
-            {
-                "teamChosen": "Panthers",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Irene",
-        "picks": [
-            {
-                "teamChosen": "Jets",
-                "isCorrect": true
-            },
-            {
-                "teamChosen": "",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Mikael",
-        "picks": [
-            {
-                "teamChosen": "Browns",
+                "teamChosen": "Raiders",
                 "isCorrect": false
             },
             {
-                "teamChosen": "Rams",
+                "teamChosen": "Giants",
                 "isCorrect": null
             }
         ]
     },
     {
-        "name": "Cristian",
+        "name": "Maria",
         "picks": [
             {
                 "teamChosen": "Bengals",
                 "isCorrect": false
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Chiefs",
                 "isCorrect": null
             }
         ]
     },
     {
-        "name": "Daniel",
-        "picks": [
-            {
-                "teamChosen": "Giants",
-                "isCorrect": true
-            },
-            {
-                "teamChosen": "Chargers",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Gabriel",
+        "name": "Jordan",
         "picks": [
             {
                 "teamChosen": "Rams",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Chargers",
+                "teamChosen": "Raiders",
                 "isCorrect": null
             }
         ]
     },
     {
-        "name": "Juan",
+        "name": "Sara",
         "picks": [
             {
-                "teamChosen": "Bills",
-                "isCorrect": true
-            },
-            {
-                "teamChosen": "Bears",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Pablo",
-        "picks": [
-            {
-                "teamChosen": "49ers",
+                "teamChosen": "Broncos",
                 "isCorrect": true
             },
             {
@@ -104,10 +52,23 @@ export const entries = [
         ]
     },
     {
-        "name": "Hiran",
+        "name": "Eric",
         "picks": [
             {
-                "teamChosen": "Jets",
+                "teamChosen": "Packers",
+                "isCorrect": true
+            },
+            {
+                "teamChosen": "Steelers",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Jairaj",
+        "picks": [
+            {
+                "teamChosen": "Packers",
                 "isCorrect": true
             },
             {
@@ -117,11 +78,11 @@ export const entries = [
         ]
     },
     {
-        "name": "Kareem",
+        "name": "Frank",
         "picks": [
             {
-                "teamChosen": "Dolphins",
-                "isCorrect": true
+                "teamChosen": "Browns",
+                "isCorrect": false
             },
             {
                 "teamChosen": "",
@@ -130,27 +91,14 @@ export const entries = [
         ]
     },
     {
-        "name": "Mike",
+        "name": "Andrew",
         "picks": [
             {
                 "teamChosen": "",
                 "isCorrect": null
             },
             {
-                "teamChosen": "",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Dana",
-        "picks": [
-            {
-                "teamChosen": "",
-                "isCorrect": null
-            },
-            {
-                "teamChosen": "",
+                "teamChosen": "Vikings",
                 "isCorrect": null
             }
         ]

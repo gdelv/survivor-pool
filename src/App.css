@@ -1,0 +1,32 @@
+td {
+  border:1px solid black;
+  text-align: center;
+  max-width: 20px;
+}
+.cell {
+  max-width: 20px;
+}
+td:first-child { 
+	border: none;
+  text-align: left;
+  font-weight: 800;
+}  
+tr:hover {background-color: pink;}
+tr:hover:first-child {background-color: none;}
+
+.red {
+	background: rgb(220, 106, 106);
+}
+.green {
+	background: rgb(150, 225, 150);
+}
+.schedule-container {
+  display: flex;
+  
+}
+.padding-left {
+  padding-left: 5%;
+}
+.align-center {
+  text-align: center;
+}

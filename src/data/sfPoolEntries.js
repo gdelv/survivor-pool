@@ -3,46 +3,20 @@ export const entries = [
         "name": "Giusseppe",
         "picks": [
             {
-                "teamChosen": "Raiders",
-                "isCorrect": false
-            },
-            {
-                "teamChosen": "Giants",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Maria",
-        "picks": [
-            {
-                "teamChosen": "Bengals",
-                "isCorrect": false
-            },
-            {
-                "teamChosen": "Chiefs",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Jordan",
-        "picks": [
-            {
-                "teamChosen": "Rams",
+                "teamChosen": "Packers",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Raiders",
+                "teamChosen": "Panthers",
                 "isCorrect": null
             }
         ]
     },
     {
-        "name": "Sara",
+        "name": "Irene",
         "picks": [
             {
-                "teamChosen": "Broncos",
+                "teamChosen": "Jets",
                 "isCorrect": true
             },
             {
@@ -52,53 +26,131 @@ export const entries = [
         ]
     },
     {
-        "name": "Eric",
-        "picks": [
-            {
-                "teamChosen": "Packers",
-                "isCorrect": true
-            },
-            {
-                "teamChosen": "Steelers",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Jairaj",
-        "picks": [
-            {
-                "teamChosen": "Packers",
-                "isCorrect": true
-            },
-            {
-                "teamChosen": "",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Frank",
+        "name": "Mikael",
         "picks": [
             {
                 "teamChosen": "Browns",
                 "isCorrect": false
             },
             {
+                "teamChosen": "Rams",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Cristian",
+        "picks": [
+            {
+                "teamChosen": "Bengals",
+                "isCorrect": false
+            },
+            {
                 "teamChosen": "",
                 "isCorrect": null
             }
         ]
     },
     {
-        "name": "Andrew",
+        "name": "Daniel",
+        "picks": [
+            {
+                "teamChosen": "Giants",
+                "isCorrect": true
+            },
+            {
+                "teamChosen": "Chargers",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Gabriel",
+        "picks": [
+            {
+                "teamChosen": "Rams",
+                "isCorrect": true
+            },
+            {
+                "teamChosen": "Chargers",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Juan",
+        "picks": [
+            {
+                "teamChosen": "Bills",
+                "isCorrect": true
+            },
+            {
+                "teamChosen": "Bears",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Pablo",
+        "picks": [
+            {
+                "teamChosen": "49ers",
+                "isCorrect": true
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Hiran",
+        "picks": [
+            {
+                "teamChosen": "Jets",
+                "isCorrect": true
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Kareem",
+        "picks": [
+            {
+                "teamChosen": "Dolphins",
+                "isCorrect": true
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Mike",
         "picks": [
             {
                 "teamChosen": "",
                 "isCorrect": null
             },
             {
-                "teamChosen": "Vikings",
+                "teamChosen": "",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Dana",
+        "picks": [
+            {
+                "teamChosen": "",
+                "isCorrect": null
+            },
+            {
+                "teamChosen": "",
                 "isCorrect": null
             }
         ]

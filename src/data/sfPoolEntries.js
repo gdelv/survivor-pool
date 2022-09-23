@@ -102,31 +102,5 @@ export const entries = [
                 "isCorrect": null
             }
         ]
-    },
-    {
-        "name": "Ian",
-        "picks": [
-            {
-                "teamChosen": "",
-                "isCorrect": null
-            },
-            {
-                "teamChosen": "Raiders",
-                "isCorrect": null
-            }
-        ]
-    },
-    {
-        "name": "Josh",
-        "picks": [
-            {
-                "teamChosen": "",
-                "isCorrect": null
-            },
-            {
-                "teamChosen": "",
-                "isCorrect": null
-            }
-        ]
     }
 ]

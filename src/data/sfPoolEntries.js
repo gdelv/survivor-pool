@@ -150,7 +150,7 @@ export const entries = [
                 "isCorrect": null
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Eagles",
                 "isCorrect": null
             }
         ]

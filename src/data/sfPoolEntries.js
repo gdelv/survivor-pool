@@ -137,7 +137,7 @@ export const entries = [
                 "isCorrect": null
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Ravens",
                 "isCorrect": null
             }
         ]
@@ -177,6 +177,19 @@ export const entries = [
             },
             {
                 "teamChosen": "",
+                "isCorrect": null
+            }
+        ]
+    },
+    {
+        "name": "Jack",
+        "picks": [
+            {
+                "teamChosen": "",
+                "isCorrect": null
+            },
+            {
+                "teamChosen": "Chiefs",
                 "isCorrect": null
             }
         ]

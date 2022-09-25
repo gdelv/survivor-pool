@@ -111,7 +111,7 @@ export const entries = [
                 "isCorrect": true
             },
             {
-                "teamChosen": "Eagles",
+                "teamChosen": "Chiefs",
                 "isCorrect": null
             }
         ]

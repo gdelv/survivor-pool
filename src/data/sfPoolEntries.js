@@ -21,7 +21,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Chiefs",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -34,7 +34,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Raiders",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -60,7 +60,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Steelers",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -86,7 +86,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Bears",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -99,7 +99,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Vikings",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -112,7 +112,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Bills",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     }

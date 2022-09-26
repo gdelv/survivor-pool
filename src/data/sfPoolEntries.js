@@ -8,7 +8,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Panthers",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -21,7 +21,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Saints",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -34,7 +34,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Rams",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -47,7 +47,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Ravens",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -60,7 +60,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Chargers",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -73,7 +73,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Chargers",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -86,7 +86,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Bears",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -99,7 +99,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Jets",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -112,7 +112,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Chiefs",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -125,7 +125,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Eagles",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -138,7 +138,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Ravens",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -151,7 +151,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Eagles",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -164,7 +164,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Raiders",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -177,7 +177,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Bills",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -190,7 +190,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Chiefs",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     }

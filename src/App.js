@@ -103,7 +103,7 @@ function App() {
             <b>{game.awayTeam}</b> @ <b>{game.homeTeam}</b>
           </p>
           <h6>
-            {game.ticketPrices !== "-" ? null : game.ticketPrices}
+            {game.ticketPrices === "-" ? null : game.ticketPrices}
           </h6>
           <h6>
             {game.time} ({game.tv})
@@ -120,7 +120,7 @@ function App() {
             <b>{game.awayTeam}</b> @ <b>{game.homeTeam}</b>
           </p>
           <h6>
-            {game.ticketPrices !== "-" ? null : game.ticketPrices}
+            {game.ticketPrices === "-" ? null : game.ticketPrices}
           </h6>
           <h6>
             {game.time} ({game.tv})
@@ -136,7 +136,7 @@ function App() {
               <b>{snfGame.awayTeam}</b> @ <b>{snfGame.homeTeam}</b>
             </p>
             <h6>
-              {snfGame.ticketPrices !== "-" ? null : snfGame.ticketPrices}
+              {snfGame.ticketPrices === "-" ? null : snfGame.ticketPrices}
             </h6>
             <h6>
               {snfGame.time} ({snfGame.tv})
@@ -151,7 +151,7 @@ function App() {
               <b>{mnfGame.awayTeam}</b> @ <b>{mnfGame.homeTeam}</b>
             </p>
             <h6>
-              {mnfGame.ticketPrices !== "-" ? null : mnfGame.ticketPrices}
+              {mnfGame.ticketPrices === "-" ? null : mnfGame.ticketPrices}
             </h6>
             <h6>
               {mnfGame.time} ({mnfGame.tv})

@@ -95,11 +95,11 @@ function App() {
             <h6>{londonGame.venue}</h6>
           </div>
         ) : null}
-        <div class="margin-left">
           <h2>1PM Games</h2>
+        <div class="margin-left">
         {firstWindowGames.map(game => {
           return (
-            <><p>
+            <div><p>
             <b>{game.awayTeam}</b> @ <b>{game.homeTeam}</b>
           </p>
           <h6>
@@ -108,7 +108,7 @@ function App() {
           <h6>
             {game.time} ({game.tv})
           </h6>
-          <h6>{game.venue}</h6></>
+          <h6>{game.venue}</h6></div>
           )
         })}
         </div>

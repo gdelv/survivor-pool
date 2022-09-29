@@ -1,8 +1,16 @@
+/* * {
+  background-color: #181a1b;
+  color: white;
+} */
+body {
+  background-color: #181a1b;
+  color: white;
+}
 td {
   border:1px solid black;
   text-align: center;
   max-width: 20px;
-  color: black;
+  color: white;
 }
 .cell {
   max-width: 20px;
@@ -15,9 +23,9 @@ td:first-child {
 	border: none;
   text-align: left;
   font-weight: 800;
-  color: black;
+  color: white;
 }  
-tr:hover {background-color: pink;}
+tr:hover {background-color: rgb(255, 161, 78) !important;}
 tr:hover:first-child {background-color: none;}
 
 .red {

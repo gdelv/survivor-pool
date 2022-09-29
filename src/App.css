@@ -29,10 +29,10 @@ tr:hover {background-color: rgb(255, 161, 78) !important;}
 tr:hover:first-child {background-color: none;}
 
 .red {
-	background: rgb(220, 106, 106);
+	background: #831f1f;
 }
 .green {
-	background: rgb(150, 225, 150);
+	background: #30671d;
 }
 .schedule-container {
   display: flex;

@@ -1,6 +1,6 @@
 export const entries = [
     {
-        "name": "Giusseppe",
+        "name": "G",
         "picks": [
             {
                 "teamChosen": "Packers",
@@ -9,6 +9,10 @@ export const entries = [
             {
                 "teamChosen": "Panthers",
                 "isCorrect": true
+            },
+            {
+                "teamChosen": "Cincinnati",
+                "isCorrect": null
             }
         ]
     },
@@ -22,6 +26,10 @@ export const entries = [
             {
                 "teamChosen": "Saints",
                 "isCorrect": false
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -35,6 +43,10 @@ export const entries = [
             {
                 "teamChosen": "Rams",
                 "isCorrect": true
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -48,6 +60,10 @@ export const entries = [
             {
                 "teamChosen": "Ravens",
                 "isCorrect": true
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -61,6 +77,10 @@ export const entries = [
             {
                 "teamChosen": "Chargers",
                 "isCorrect": false
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -74,6 +94,10 @@ export const entries = [
             {
                 "teamChosen": "Chargers",
                 "isCorrect": false
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -87,6 +111,10 @@ export const entries = [
             {
                 "teamChosen": "Bears",
                 "isCorrect": true
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -100,6 +128,10 @@ export const entries = [
             {
                 "teamChosen": "Jets",
                 "isCorrect": false
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -113,6 +145,10 @@ export const entries = [
             {
                 "teamChosen": "Chiefs",
                 "isCorrect": false
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -126,6 +162,10 @@ export const entries = [
             {
                 "teamChosen": "Eagles",
                 "isCorrect": true
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -139,6 +179,10 @@ export const entries = [
             {
                 "teamChosen": "Ravens",
                 "isCorrect": true
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -152,6 +196,10 @@ export const entries = [
             {
                 "teamChosen": "Eagles",
                 "isCorrect": true
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -165,6 +213,10 @@ export const entries = [
             {
                 "teamChosen": "Raiders",
                 "isCorrect": false
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -178,6 +230,10 @@ export const entries = [
             {
                 "teamChosen": "Bills",
                 "isCorrect": false
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
     },
@@ -191,7 +247,34 @@ export const entries = [
             {
                 "teamChosen": "Chiefs",
                 "isCorrect": false
+            },
+            {
+                "teamChosen": "",
+                "isCorrect": null
             }
         ]
+    }
+]
+//Add startDate and endDate of each NFL Week
+export const weekMapping = [
+    {
+        "weekNum": 1,
+        "startDate": '8/20/22',//Tuesday
+        "endDate": '9/12/2022' //Monday
+    },
+    {
+        "weekNum": 2,
+        "startDate": '9/13/2022',//Tuesday
+        "endDate": '9/19/2022' //Monday
+    },
+    {
+        "weekNum": 3,
+        "startDate": '9/20/2022',//Tuesday
+        "endDate": '9/26/2022' //Monday
+    },
+    {
+        "weekNum": 4,
+        "startDate": '9/27/2022',//Tuesday
+        "endDate": '10/3/2022' //Monday
     }
 ]

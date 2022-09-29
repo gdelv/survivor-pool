@@ -1,64 +1,196 @@
+import { useEffect, useState } from "react";
 import "./App.css";
-import { entries } from "./data/sfPoolEntries";
+import { entries, weekMapping } from "./data/sfPoolEntries";
+import { db } from "./firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 function App() {
-  // const renderWeeks = (num) => {
-  //   console.log("hello")
-  //   let element = null;
-  //   for (let i = 0; i < num; i++) {
-  //     element += <th>Week {i}</th>;
-  //   }
-  //   return element
+  const [week, setWeek] = useState(null);
+  const [thursdayGame, setThursdayGame] = useState({});
+  const [londonGame, setLondonGame] = useState({});
+  const [mnfGame, setMnfGame] = useState({});
+  const [snfGame, setSnfGame] = useState({});
+  const [firstWindowGames, setFirstWindowGames] = useState([]);
+  const [secondWindowGames, setSecondWindowGames] = useState([]);
 
-  // }
+  useEffect(() => {
+    console.log("inside use effect");
+    const getSchedule = async () => {
+      const todayDate = new Date();
+      let weekNumberFound;
+      weekMapping.forEach((week) => {
+        console.log(new Date(week.endDate));
+        if (
+          todayDate < new Date(week.endDate) &&
+          todayDate > new Date(week.startDate)
+        ) {
+          console.log("found", week.weekNum);
+          return (weekNumberFound = week.weekNum);
+        }
+      });
+      setWeek(weekNumberFound);
+      console.log(week);
+      const notesSnapshot = await getDocs(
+        collection(db, `Week-${weekNumberFound}`)
+      );
+      const allGames = notesSnapshot.docs.map((doc) => doc.data());
+      console.log(allGames);
+      let firstGames = [];
+      let secondGames = [];
+      allGames.forEach((game) => {
+        return game.tv === "AMZN"
+          ? setThursdayGame(game)
+          : game.time === "9:30 am"
+          ? setLondonGame(game)
+          : game.time === "8:20 pm" && game.tv === "NBC"
+          ? setSnfGame(game)
+          : game.time === "8:15 pm" && game.tv === "ESPN"
+          ? setMnfGame(game)
+          : game.time === "1:00 pm"
+          ? firstGames.push(game)
+          : game.time === "4:25 pm" || game.time === "4:05 pm" ? secondGames.push(game):null;
+      });
+      console.log('first',firstGames);
+      setFirstWindowGames(firstGames);
+      setSecondWindowGames(secondGames)
+      return allGames;
+    };
+    if (week === null) {
+      getSchedule(); //call getSchedule based on which weekNum it is
+    }
+
+    // return () => {
+    //   second
+    // }
+  }, [week]);
+
   return (
     <div className="App">
-      <h1 className="align-center">Week 3</h1>
+      <h1 className="align-center">Week {week}</h1>
       <div class="schedule-container">
         <div class="margin-left">
           <h2>Thursday Game</h2>
-          <p><b>Steelers</b> (1-1) @ <b>Browns</b> (1-1)</p>
+          <p>
+            <b>{thursdayGame.awayTeam}</b> @ <b>{thursdayGame.homeTeam}</b>
+          </p>
+          <h6>{thursdayGame.ticketPrices}</h6>
+          <h6>
+            {thursdayGame.time} ({thursdayGame.tv})
+          </h6>
+          <h6>{thursdayGame.venue}</h6>
         </div>
+        {/* If 9:30am games show here */}
+        {londonGame ? (
+          <div class="margin-left">
+            <h2>Sunday Morning London Game</h2>
+            <p>
+              <b>{londonGame.awayTeam}</b> @ <b>{londonGame.homeTeam}</b>
+            </p>
+            <h6>
+              {londonGame.ticketPrices !== "-" ? null : londonGame.ticketPrices}
+            </h6>
+            <h6>
+              {londonGame.time} ({londonGame.tv})
+            </h6>
+            <h6>{londonGame.venue}</h6>
+          </div>
+        ) : null}
         <div class="margin-left">
           <h2>1PM Games</h2>
-          <p><b>Saints</b> (1-1) @ <b>Panthers</b> (0-2)</p>
-          <p><b>Texans</b> (0-1-1) @ <b>Bears</b> (1-1)</p>
-          <p><b>Chiefs</b> (2-0) @ <b>Colts</b> (0-1-1)</p>
-          <p><b>Bills</b> (2-0) @ <b>Dolphins</b> (2-0)</p>
-          <p><b>Lions</b> (1-1) @ <b>Vikings</b> (1-1)</p>
-          <p><b>Ravens</b> (1-1) @ <b>Patriots</b> (1-1)</p>
-          <p><b>Bengals</b> (0-2) @ <b>Jets</b> (1-1)</p>
-          <p><b>Raiders</b> (0-2) @ <b>Titans</b> (1-1)</p>
-          <p><b>Eagles</b> (2-0) @ <b>Commanders</b> (1-1)</p>
+        {firstWindowGames.map(game => {
+          return (
+            <><p>
+            <b>{game.awayTeam}</b> @ <b>{game.homeTeam}</b>
+          </p>
+          <h6>
+            {game.ticketPrices !== "-" ? null : game.ticketPrices}
+          </h6>
+          <h6>
+            {game.time} ({game.tv})
+          </h6>
+          <h6>{game.venue}</h6></>
+          )
+        })}
         </div>
         <div class="margin-left">
           <h2>4PM Games</h2>
-          <p><b>Jaguars</b> (1-1) @ <b>Chargers</b> (1-1)</p>
-          <p><b>Rams</b> (1-1) @ <b>Cardinals</b> (1-1)</p>
-          <p><b>Falcons</b> (0-2) @ <b>Seahawks</b> (1-1)</p>
-          <p><b>Packers</b> (1-1) @ <b>Buccaneers</b> (2-0)</p>
+          {secondWindowGames.map(game => {
+          return (
+            <><p>
+            <b>{game.awayTeam}</b> @ <b>{game.homeTeam}</b>
+          </p>
+          <h6>
+            {game.ticketPrices !== "-" ? null : game.ticketPrices}
+          </h6>
+          <h6>
+            {game.time} ({game.tv})
+          </h6>
+          <h6>{game.venue}</h6></>
+          )
+        })}
         </div>
-        <div class="margin-left">
+        {snfGame ? (
+          <div class="margin-left">
+            <h2>Sunday Night Football</h2>
+            <p>
+              <b>{snfGame.awayTeam}</b> @ <b>{snfGame.homeTeam}</b>
+            </p>
+            <h6>
+              {snfGame.ticketPrices !== "-" ? null : snfGame.ticketPrices}
+            </h6>
+            <h6>
+              {snfGame.time} ({snfGame.tv})
+            </h6>
+            <h6>{snfGame.venue}</h6>
+          </div>
+        ) : null}
+        {mnfGame ? (
+          <div class="margin-left">
+            <h2>Monday Night Football</h2>
+            <p>
+              <b>{mnfGame.awayTeam}</b> @ <b>{mnfGame.homeTeam}</b>
+            </p>
+            <h6>
+              {mnfGame.ticketPrices !== "-" ? null : mnfGame.ticketPrices}
+            </h6>
+            <h6>
+              {mnfGame.time} ({mnfGame.tv})
+            </h6>
+            <h6>{mnfGame.venue}</h6>
+          </div>
+        ) : null}
+        {/* <div class="margin-left">
           <h2>Sunday Night Game</h2>
           <p><b>49ers</b> (1-1) @ <b>Broncos</b> (1-1)</p>
         </div>
         <div class="margin-left">
           <h2>Monday Night Game</h2>
           <p><b>Cowboys</b> (1-1) @ <b>Giants</b> (2-0)</p>
-        </div>
+        </div> */}
       </div>
-<br></br>
-<h1 className="align-center">Weekly Picks</h1>
-<h2 className="align-center">Rules</h2>
-<p>Each pool member chooses one NFL team each week they think will WIN  their game outright (picks are made 'straight up', not using a point spread system).</p>
-<p>NFL teams can only be picked once during the season.</p>
-<p>If a game your picked team is playing in results in a tie, your pick will be correct and your entry will advance.</p>
-<p>The final pick deadline each week is Sunday at 1pm ET. If you want to pick an earlier game you must do so by kickoff of that game.</p>
+      <br></br>
+      <h1 className="align-center">Weekly Picks</h1>
+      <h2 className="align-center">Rules</h2>
+      <p>
+        Each pool member chooses one NFL team each week they think will WIN
+        their game outright (picks are made 'straight up', not using a point
+        spread system).
+      </p>
+      <p>NFL teams can only be picked once during the season.</p>
+      <p>
+        If a game your picked team is playing in results in a tie, your pick
+        will be correct and your entry will advance.
+      </p>
+      <p>
+        The final pick deadline each week is Sunday at 1pm ET. If you want to
+        pick an earlier game you must do so by kickoff of that game.
+      </p>
       <table style={{ width: "85%", height: "60vh", margin: "auto" }}>
         <tr>
           <th></th>
           <th>Week 2</th>
           <th>Week 3</th>
+          <th>Week 4</th>
           {/* {renderWeeks(6)} */}
         </tr>
         {entries.map((entry) => (

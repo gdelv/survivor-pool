@@ -45,7 +45,7 @@ export const entries = [
                 "isCorrect": true
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Chargers",
                 "isCorrect": null
             }
         ]
@@ -79,7 +79,7 @@ export const entries = [
                 "isCorrect": false
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Eagles",
                 "isCorrect": null
             }
         ]
@@ -96,7 +96,7 @@ export const entries = [
                 "isCorrect": false
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Steelers",
                 "isCorrect": null
             }
         ]
@@ -181,7 +181,7 @@ export const entries = [
                 "isCorrect": true
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Dolphins",
                 "isCorrect": null
             }
         ]

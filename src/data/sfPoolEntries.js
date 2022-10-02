@@ -3,15 +3,15 @@ export const entries = [
         "name": "G",
         "picks": [
             {
-                "teamChosen": "Packers",
+                "teamChosen": "GB",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Panthers",
+                "teamChosen": "CAR",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Cincinnati",
+                "teamChosen": "CIN",
                 "isCorrect": true
             }
         ]
@@ -20,15 +20,15 @@ export const entries = [
         "name": "Irene",
         "picks": [
             {
-                "teamChosen": "Jets",
+                "teamChosen": "NYJ",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Saints",
+                "teamChosen": "NO",
                 "isCorrect": false
             },
             {
-                "teamChosen": "Eagles",
+                "teamChosen": "PHI",
                 "isCorrect": true
             }
         ]
@@ -37,15 +37,15 @@ export const entries = [
         "name": "Mikael",
         "picks": [
             {
-                "teamChosen": "Browns",
+                "teamChosen": "CLE",
                 "isCorrect": false
             },
             {
-                "teamChosen": "Rams",
+                "teamChosen": "LAR",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Chargers",
+                "teamChosen": "LAC",
                 "isCorrect": true
             }
         ]
@@ -54,15 +54,15 @@ export const entries = [
         "name": "Cristian",
         "picks": [
             {
-                "teamChosen": "Bengals",
+                "teamChosen": "CIN",
                 "isCorrect": false
             },
             {
-                "teamChosen": "Ravens",
+                "teamChosen": "BAL",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Chargers",
+                "teamChosen": "LAC",
                 "isCorrect": true
             }
         ]
@@ -71,15 +71,15 @@ export const entries = [
         "name": "Daniel",
         "picks": [
             {
-                "teamChosen": "Giants",
+                "teamChosen": "NYG",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Chargers",
+                "teamChosen": "LAC",
                 "isCorrect": false
             },
             {
-                "teamChosen": "Eagles",
+                "teamChosen": "PHI",
                 "isCorrect": true
             }
         ]
@@ -88,15 +88,15 @@ export const entries = [
         "name": "Gabriel",
         "picks": [
             {
-                "teamChosen": "Rams",
+                "teamChosen": "LAR",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Chargers",
+                "teamChosen": "LAC",
                 "isCorrect": false
             },
             {
-                "teamChosen": "Steelers",
+                "teamChosen": "PIT",
                 "isCorrect": false
             }
         ]
@@ -105,15 +105,15 @@ export const entries = [
         "name": "Juan",
         "picks": [
             {
-                "teamChosen": "Bills",
+                "teamChosen": "BUF",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Bears",
+                "teamChosen": "CHI",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Broncos",
+                "teamChosen": "DEN",
                 "isCorrect": null
             }
         ]
@@ -122,11 +122,11 @@ export const entries = [
         "name": "Pablo",
         "picks": [
             {
-                "teamChosen": "49ers",
+                "teamChosen": "SF",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Jets",
+                "teamChosen": "NYJ",
                 "isCorrect": false
             },
             {
@@ -139,11 +139,11 @@ export const entries = [
         "name": "Hiran",
         "picks": [
             {
-                "teamChosen": "Jets",
+                "teamChosen": "NYJ",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Chiefs",
+                "teamChosen": "KC",
                 "isCorrect": false
             },
             {
@@ -156,11 +156,11 @@ export const entries = [
         "name": "Kareem",
         "picks": [
             {
-                "teamChosen": "Dolphins",
+                "teamChosen": "MIA",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Eagles",
+                "teamChosen": "PHI",
                 "isCorrect": true
             },
             {
@@ -177,11 +177,11 @@ export const entries = [
                 "isCorrect": null
             },
             {
-                "teamChosen": "Ravens",
+                "teamChosen": "BAL",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Dolphins",
+                "teamChosen": "MIA",
                 "isCorrect": false
             }
         ]
@@ -194,11 +194,11 @@ export const entries = [
                 "isCorrect": null
             },
             {
-                "teamChosen": "Eagles",
+                "teamChosen": "PHI",
                 "isCorrect": true
             },
             {
-                "teamChosen": "Giants",
+                "teamChosen": "NYG",
                 "isCorrect": true
             }
         ]
@@ -211,11 +211,11 @@ export const entries = [
                 "isCorrect": null
             },
             {
-                "teamChosen": "Raiders",
+                "teamChosen": "LV",
                 "isCorrect": false
             },
             {
-                "teamChosen": "Colts",
+                "teamChosen": "IND",
                 "isCorrect": false
             }
         ]
@@ -228,11 +228,11 @@ export const entries = [
                 "isCorrect": null
             },
             {
-                "teamChosen": "Bills",
+                "teamChosen": "BUF",
                 "isCorrect": false
             },
             {
-                "teamChosen": "Steelers",
+                "teamChosen": "PIT",
                 "isCorrect": false
             }
         ]
@@ -245,11 +245,11 @@ export const entries = [
                 "isCorrect": null
             },
             {
-                "teamChosen": "Chiefs",
+                "teamChosen": "KC",
                 "isCorrect": false
             },
             {
-                "teamChosen": "Steelers",
+                "teamChosen": "PIT",
                 "isCorrect": false
             }
         ]

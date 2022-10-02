@@ -29,7 +29,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Eagles",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -46,7 +46,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Chargers",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -63,7 +63,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Chargers",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -80,7 +80,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Eagles",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -97,7 +97,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Steelers",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -199,7 +199,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Giants",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -216,7 +216,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Colts",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -233,7 +233,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Steelers",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -250,7 +250,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Steelers",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     }

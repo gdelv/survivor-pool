@@ -12,7 +12,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Cincinnati",
-                "isCorrect": null
+                "isCorrect": true
             }
         ]
     },
@@ -113,7 +113,7 @@ export const entries = [
                 "isCorrect": true
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Broncos",
                 "isCorrect": null
             }
         ]
@@ -182,7 +182,7 @@ export const entries = [
             },
             {
                 "teamChosen": "Dolphins",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -198,7 +198,7 @@ export const entries = [
                 "isCorrect": true
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Giants",
                 "isCorrect": null
             }
         ]
@@ -215,7 +215,7 @@ export const entries = [
                 "isCorrect": false
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Colts",
                 "isCorrect": null
             }
         ]
@@ -232,7 +232,7 @@ export const entries = [
                 "isCorrect": false
             },
             {
-                "teamChosen": "",
+                "teamChosen": "Steelers",
                 "isCorrect": null
             }
         ]

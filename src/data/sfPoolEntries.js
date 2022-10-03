@@ -275,6 +275,11 @@ export const weekMapping = [
     {
         "weekNum": 4,
         "startDate": '9/27/2022',//Tuesday
-        "endDate": '10/3/2022' //Monday
+        "endDate": '10/4/2022' //Tuesday
+    },
+    {
+        "weekNum": 5,
+        "startDate": '10/4/2022',//Tuesday
+        "endDate": '10/11/2022' //Tuesday
     }
 ]

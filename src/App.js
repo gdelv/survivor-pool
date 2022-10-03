@@ -14,27 +14,22 @@ function App() {
   const [secondWindowGames, setSecondWindowGames] = useState([]);
 
   useEffect(() => {
-    console.log("inside use effect");
     const getSchedule = async () => {
       const todayDate = new Date();
       let weekNumberFound;
       weekMapping.forEach((week) => {
-        console.log(new Date(week.endDate));
         if (
           todayDate < new Date(week.endDate) &&
-          todayDate > new Date(week.startDate)
+          todayDate >= new Date(week.startDate)
         ) {
-          console.log("found", week.weekNum);
           return (weekNumberFound = week.weekNum);
         }
       });
       setWeek(weekNumberFound);
-      console.log(week);
       const notesSnapshot = await getDocs(
         collection(db, `Week-${weekNumberFound}`)
       );
       const allGames = notesSnapshot.docs.map((doc) => doc.data());
-      console.log(allGames);
       let firstGames = [];
       let secondGames = [];
       allGames.forEach((game) => {
@@ -50,7 +45,7 @@ function App() {
           ? firstGames.push(game)
           : game.time === "4:25 pm" || game.time === "4:05 pm" ? secondGames.push(game):null;
       });
-      console.log('first',firstGames);
+      // console.log('first',firstGames);
       setFirstWindowGames(firstGames);
       setSecondWindowGames(secondGames)
       return allGames;
@@ -159,14 +154,6 @@ function App() {
             <h6>{mnfGame.venue}</h6>
           </div>
         ) : null}
-        {/* <div class="margin-left">
-          <h2>Sunday Night Game</h2>
-          <p><b>49ers</b> (1-1) @ <b>Broncos</b> (1-1)</p>
-        </div>
-        <div class="margin-left">
-          <h2>Monday Night Game</h2>
-          <p><b>Cowboys</b> (1-1) @ <b>Giants</b> (2-0)</p>
-        </div> */}
       </div>
       <br></br>
       <h1 className="align-center">Weekly Picks</h1>
@@ -191,7 +178,6 @@ function App() {
           <th>Week 2</th>
           <th>Week 3</th>
           <th>Week 4</th>
-          {/* {renderWeeks(6)} */}
         </tr>
         {entries.map((entry) => (
           <tr>

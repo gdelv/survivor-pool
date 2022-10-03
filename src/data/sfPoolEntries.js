@@ -114,7 +114,7 @@ export const entries = [
             },
             {
                 "teamChosen": "DEN",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -130,7 +130,7 @@ export const entries = [
                 "isCorrect": false
             },
             {
-                "teamChosen": "",
+                "teamChosen": "LAR",
                 "isCorrect": null
             }
         ]

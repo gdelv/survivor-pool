@@ -131,7 +131,7 @@ export const entries = [
             },
             {
                 "teamChosen": "LAR",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -148,7 +148,7 @@ export const entries = [
             },
             {
                 "teamChosen": "LAR",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },
@@ -165,7 +165,7 @@ export const entries = [
             },
             {
                 "teamChosen": "LAR",
-                "isCorrect": null
+                "isCorrect": false
             }
         ]
     },

@@ -2,6 +2,10 @@
   background-color: #181a1b;
   color: white;
 } */
+.eliminated__team {
+  text-decoration: line-through;
+  color: red !important;
+}
 body {
   background-color: #181a1b;
   color: white;

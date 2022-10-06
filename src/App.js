@@ -30,6 +30,11 @@ function App() {
         collection(db, `Week-${weekNumberFound}`)
       );
       const allGames = notesSnapshot.docs.map((doc) => doc.data());
+      const standingsSnapshot = await getDocs(
+        collection(db, `Week-${weekNumberFound}`)
+      );
+      const allStandings = standingsSnapshot.docs.map((doc) => doc.data());
+      console.log(allStandings);
       let firstGames = [];
       let secondGames = [];
       allGames.forEach((game) => {
@@ -58,7 +63,6 @@ function App() {
     //   second
     // }
   }, [week]);
-
   return (
     <div className="App">
       <h1 className="align-center">Week {week}</h1>
@@ -181,7 +185,7 @@ function App() {
         </tr>
         {entries.map((entry) => (
           <tr>
-            <td className="cell">{entry.name}</td>
+            <td className={entry.isEliminated ? "eliminated__team" :"cell"}>{entry.name}</td>
             {entry.picks.map((pick) => (
               <td
                 className={

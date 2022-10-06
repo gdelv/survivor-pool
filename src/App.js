@@ -229,13 +229,13 @@ function App() {
         The final pick deadline each week is Sunday at 1pm ET. If you want to
         pick an earlier game you must do so by kickoff of that game.
       </p>
-      <table style={{ width: "85%", height: "60vh", margin: "auto" }}>
+      <table style={{ width: "95%", height: "60vh", margin: "auto" }}>
         <tr>
-          <th></th>
-          <th>Week 2</th>
-          <th>Week 3</th>
-          <th>Week 4</th>
-          <th>Week 5</th>
+          <th style={{width:"6%"}}></th>
+          <th style={{width:"5%"}}>Week 2</th>
+          <th style={{width:"5%"}}>Week 3</th>
+          <th style={{width:"5%"}}>Week 4</th>
+          <th style={{width:"5%"}}>Week 5</th>
         </tr>
         {entries.map((entry) => (
           <tr key={entry.name}>

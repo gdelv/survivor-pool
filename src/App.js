@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { entries, weekMapping } from "./data/sfPoolEntries";
+import { updatedEntries, weekMapping } from "./data/sfPoolEntries";
 import { db } from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -13,7 +13,7 @@ function App() {
   const [firstWindowGames, setFirstWindowGames] = useState([]);
   const [secondWindowGames, setSecondWindowGames] = useState([]);
   const [allGames, setAllGames] = useState([]);
-
+  const entries = updatedEntries();
   useEffect(() => {
     const getSchedule = async () => {
       const todayDate = new Date();
@@ -68,7 +68,7 @@ function App() {
   }, [week]);
   const getTeamRecord = (teamStr) => {
     let team = allGames.find((game) => game.teamCity === teamStr);
-    console.log(team);
+    // console.log(team);
     if (team) {
       let recordColor =
         week - team.wins < 2 ? "gold" : week - team.wins < 3 ? "red" : week - team.wins < 4 ? "green":"deepskyblue";
@@ -83,8 +83,8 @@ function App() {
   return (
     <div className="App">
       <h1 className="align-center">Week {week}</h1>
-      <div class="schedule-container">
-        <div class="margin-left">
+      <div className="schedule-container">
+        <div className="margin-left">
           <h2>Thursday Game</h2>
           <p>
             <b>
@@ -103,7 +103,7 @@ function App() {
         </div>
         {/* If 9:30am games show here */}
         {londonGame ? (
-          <div class="margin-left">
+          <div className="margin-left">
             <h2>Sunday Morning London Game</h2>
             <p>
               <b>
@@ -124,10 +124,10 @@ function App() {
           </div>
         ) : null}
         <h2>1PM Games</h2>
-        <div class="margin-left">
+        <div className="margin-left">
           {firstWindowGames.map((game) => {
             return (
-              <div>
+              <div key={game.venue}>
                 <p>
                   <b>
                     {game.awayTeam} ({getTeamRecord(game.awayTeam)})
@@ -146,11 +146,11 @@ function App() {
             );
           })}
         </div>
-        <div class="margin-left">
+        <div className="margin-left">
           <h2>4PM Games</h2>
           {secondWindowGames.map((game) => {
             return (
-              <>
+              <div key={game.venue}>
                 <p>
                   <b>
                     {game.awayTeam} ({getTeamRecord(game.awayTeam)})
@@ -165,12 +165,12 @@ function App() {
                   {game.time} ({game.tv})
                 </h6>
                 <h6>{game.venue}</h6>
-              </>
+              </div>
             );
           })}
         </div>
         {snfGame ? (
-          <div class="margin-left">
+          <div className="margin-left">
             <h2>Sunday Night Football</h2>
             <p>
               <b>
@@ -191,7 +191,7 @@ function App() {
           </div>
         ) : null}
         {mnfGame ? (
-          <div class="margin-left">
+          <div className="margin-left">
             <h2>Monday Night Football</h2>
             <p>
               <b>
@@ -238,12 +238,12 @@ function App() {
           <th>Week 5</th>
         </tr>
         {entries.map((entry) => (
-          <tr>
+          <tr key={entry.name}>
             <td className={entry.isEliminated ? "eliminated__team" : "cell"}>
               {entry.name}
             </td>
             {entry.picks.map((pick) => (
-              <td
+              <td key={pick.teamChosen}
                 className={
                   pick.isCorrect === null
                     ? "cell"

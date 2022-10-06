@@ -1,7 +1,7 @@
 const checkElimination = (arr) => {
   let count = 0;
   arr.forEach((entry) => {
-    if (!entry.isCorrect) {
+    if (entry.isCorrect === false) {
       count++;
     }
   });
@@ -42,6 +42,10 @@ export const entries = [
       {
         teamChosen: "PHI",
         isCorrect: true,
+      },
+      {
+        teamChosen: "TEN",
+        isCorrect: null,
       },
     ],
   },

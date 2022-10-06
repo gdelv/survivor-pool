@@ -182,6 +182,7 @@ function App() {
           <th>Week 2</th>
           <th>Week 3</th>
           <th>Week 4</th>
+          <th>Week 5</th>
         </tr>
         {entries.map((entry) => (
           <tr>

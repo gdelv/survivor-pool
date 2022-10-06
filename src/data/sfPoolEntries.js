@@ -295,7 +295,7 @@ export const updatedEntries = () => {
   return finalArr;
 };
 
-console.log(updatedEntries(), "new entries");
+// console.log(updatedEntries(), "new entries");
 
 //Add startDate and endDate of each NFL Week
 export const weekMapping = [

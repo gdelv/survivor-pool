@@ -6,6 +6,16 @@
   text-decoration: line-through;
   color: red !important;
 }
+.gold {
+  color: gold !important;
+}
+.red {
+  color: red !important;
+}
+.blue {
+  color: blue !important;
+}
+
 body {
   background-color: #181a1b;
   color: white;

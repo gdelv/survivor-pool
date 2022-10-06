@@ -12,6 +12,7 @@ function App() {
   const [snfGame, setSnfGame] = useState({});
   const [firstWindowGames, setFirstWindowGames] = useState([]);
   const [secondWindowGames, setSecondWindowGames] = useState([]);
+  const [allGames, setAllGames] = useState([]);
 
   useEffect(() => {
     const getSchedule = async () => {
@@ -30,13 +31,13 @@ function App() {
         collection(db, `Week-${weekNumberFound}`)
       );
       const allGames = notesSnapshot.docs.map((doc) => doc.data());
-      const standingsSnapshot = await getDocs(
-        collection(db, `Week-${weekNumberFound}`)
-      );
+      const standingsSnapshot = await getDocs(collection(db, `Standings`));
       const allStandings = standingsSnapshot.docs.map((doc) => doc.data());
-      console.log(allStandings);
+      setAllGames(allStandings);
+      // console.log(allStandings, "hi");
       let firstGames = [];
       let secondGames = [];
+
       allGames.forEach((game) => {
         return game.tv === "AMZN"
           ? setThursdayGame(game)
@@ -48,11 +49,13 @@ function App() {
           ? setMnfGame(game)
           : game.time === "1:00 pm"
           ? firstGames.push(game)
-          : game.time === "4:25 pm" || game.time === "4:05 pm" ? secondGames.push(game):null;
+          : game.time === "4:25 pm" || game.time === "4:05 pm"
+          ? secondGames.push(game)
+          : null;
       });
       // console.log('first',firstGames);
       setFirstWindowGames(firstGames);
-      setSecondWindowGames(secondGames)
+      setSecondWindowGames(secondGames);
       return allGames;
     };
     if (week === null) {
@@ -63,6 +66,20 @@ function App() {
     //   second
     // }
   }, [week]);
+  const getTeamRecord = (teamStr) => {
+    let team = allGames.find((game) => game.teamCity === teamStr);
+    console.log(team);
+    if (team) {
+      let recordColor =
+        week - team.wins < 2 ? "gold" : week - team.wins < 3 ? "red" : week - team.wins < 4 ? "green":"deepskyblue";
+      // return `${team.wins}-${team.ties}-${team.loss}`
+      return (
+        <span
+          style={{ color: recordColor }}
+        >{`${team.wins}-${team.ties}-${team.loss}`}</span>
+      );
+    }
+  };
   return (
     <div className="App">
       <h1 className="align-center">Week {week}</h1>
@@ -70,7 +87,13 @@ function App() {
         <div class="margin-left">
           <h2>Thursday Game</h2>
           <p>
-            <b>{thursdayGame.awayTeam}</b> @ <b>{thursdayGame.homeTeam}</b>
+            <b>
+              {thursdayGame.awayTeam} ({getTeamRecord(thursdayGame.awayTeam)})
+            </b>{" "}
+            @{" "}
+            <b>
+              {thursdayGame.homeTeam} ({getTeamRecord(thursdayGame.homeTeam)})
+            </b>
           </p>
           <h6>{thursdayGame.ticketPrices}</h6>
           <h6>
@@ -83,7 +106,13 @@ function App() {
           <div class="margin-left">
             <h2>Sunday Morning London Game</h2>
             <p>
-              <b>{londonGame.awayTeam}</b> @ <b>{londonGame.homeTeam}</b>
+              <b>
+                {londonGame.awayTeam} ({getTeamRecord(londonGame.awayTeam)})
+              </b>{" "}
+              @{" "}
+              <b>
+                {londonGame.homeTeam} ({getTeamRecord(londonGame.homeTeam)})
+              </b>
             </p>
             <h6>
               {londonGame.ticketPrices !== "-" ? null : londonGame.ticketPrices}
@@ -94,45 +123,63 @@ function App() {
             <h6>{londonGame.venue}</h6>
           </div>
         ) : null}
-          <h2>1PM Games</h2>
+        <h2>1PM Games</h2>
         <div class="margin-left">
-        {firstWindowGames.map(game => {
-          return (
-            <div><p>
-            <b>{game.awayTeam}</b> @ <b>{game.homeTeam}</b>
-          </p>
-          <h6>
-            {game.ticketPrices === "-" ? null : game.ticketPrices}
-          </h6>
-          <h6>
-            {game.time} ({game.tv})
-          </h6>
-          <h6>{game.venue}</h6></div>
-          )
-        })}
+          {firstWindowGames.map((game) => {
+            return (
+              <div>
+                <p>
+                  <b>
+                    {game.awayTeam} ({getTeamRecord(game.awayTeam)})
+                  </b>{" "}
+                  @{" "}
+                  <b>
+                    {game.homeTeam} ({getTeamRecord(game.homeTeam)})
+                  </b>
+                </p>
+                <h6>{game.ticketPrices === "-" ? null : game.ticketPrices}</h6>
+                <h6>
+                  {game.time} ({game.tv})
+                </h6>
+                <h6>{game.venue}</h6>
+              </div>
+            );
+          })}
         </div>
         <div class="margin-left">
           <h2>4PM Games</h2>
-          {secondWindowGames.map(game => {
-          return (
-            <><p>
-            <b>{game.awayTeam}</b> @ <b>{game.homeTeam}</b>
-          </p>
-          <h6>
-            {game.ticketPrices === "-" ? null : game.ticketPrices}
-          </h6>
-          <h6>
-            {game.time} ({game.tv})
-          </h6>
-          <h6>{game.venue}</h6></>
-          )
-        })}
+          {secondWindowGames.map((game) => {
+            return (
+              <>
+                <p>
+                  <b>
+                    {game.awayTeam} ({getTeamRecord(game.awayTeam)})
+                  </b>{" "}
+                  @{" "}
+                  <b>
+                    {game.homeTeam} ({getTeamRecord(game.homeTeam)})
+                  </b>
+                </p>
+                <h6>{game.ticketPrices === "-" ? null : game.ticketPrices}</h6>
+                <h6>
+                  {game.time} ({game.tv})
+                </h6>
+                <h6>{game.venue}</h6>
+              </>
+            );
+          })}
         </div>
         {snfGame ? (
           <div class="margin-left">
             <h2>Sunday Night Football</h2>
             <p>
-              <b>{snfGame.awayTeam}</b> @ <b>{snfGame.homeTeam}</b>
+              <b>
+                {snfGame.awayTeam} ({getTeamRecord(snfGame.awayTeam)})
+              </b>{" "}
+              @{" "}
+              <b>
+                {snfGame.homeTeam} ({getTeamRecord(snfGame.homeTeam)})
+              </b>
             </p>
             <h6>
               {snfGame.ticketPrices === "-" ? null : snfGame.ticketPrices}
@@ -147,7 +194,13 @@ function App() {
           <div class="margin-left">
             <h2>Monday Night Football</h2>
             <p>
-              <b>{mnfGame.awayTeam}</b> @ <b>{mnfGame.homeTeam}</b>
+              <b>
+                {mnfGame.awayTeam} ({getTeamRecord(mnfGame.awayTeam)})
+              </b>{" "}
+              @{" "}
+              <b>
+                {mnfGame.homeTeam} ({getTeamRecord(mnfGame.homeTeam)})
+              </b>
             </p>
             <h6>
               {mnfGame.ticketPrices === "-" ? null : mnfGame.ticketPrices}
@@ -186,7 +239,9 @@ function App() {
         </tr>
         {entries.map((entry) => (
           <tr>
-            <td className={entry.isEliminated ? "eliminated__team" :"cell"}>{entry.name}</td>
+            <td className={entry.isEliminated ? "eliminated__team" : "cell"}>
+              {entry.name}
+            </td>
             {entry.picks.map((pick) => (
               <td
                 className={

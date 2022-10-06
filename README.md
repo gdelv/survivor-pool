@@ -4,4 +4,6 @@ SURVIVE
 - [x] Conditional cell color
 - [x] Webscrape NFL Schedule by Week #
 - [x] Read NFL Schedule from Firebase
-- [ ] Look up week # by date
+- [x] Look up week # by date
+- [x] Show eliminated teams
+- [ ] Show team records

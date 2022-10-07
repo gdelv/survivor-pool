@@ -25,6 +25,10 @@ export const entries = [
         teamChosen: "CIN",
         isCorrect: true,
       },
+      {
+        teamChosen: "JAX",
+        isCorrect: null,
+      },
     ],
   },
   {
@@ -65,6 +69,10 @@ export const entries = [
         teamChosen: "LAC",
         isCorrect: true,
       },
+      {
+        teamChosen: "MIN",
+        isCorrect: null,
+      },
     ],
   },
   {
@@ -83,6 +91,10 @@ export const entries = [
         teamChosen: "LAC",
         isCorrect: true,
       },
+      {
+        teamChosen: "MIN",
+        isCorrect: null,
+      },
     ],
   },
   {
@@ -100,6 +112,10 @@ export const entries = [
       {
         teamChosen: "PHI",
         isCorrect: true,
+      },
+      {
+        teamChosen: "MIN",
+        isCorrect: null,
       },
     ],
   },
@@ -136,6 +152,10 @@ export const entries = [
       {
         teamChosen: "DEN",
         isCorrect: false,
+      },
+      {
+        teamChosen: "LAR",
+        isCorrect: null,
       },
     ],
   },
@@ -226,6 +246,10 @@ export const entries = [
       {
         teamChosen: "NYG",
         isCorrect: true,
+      },
+      {
+        teamChosen: "MIN",
+        isCorrect: null,
       },
     ],
   },
@@ -323,5 +347,15 @@ export const weekMapping = [
     weekNum: 5,
     startDate: "10/4/2022", //Tuesday
     endDate: "10/11/2022", //Tuesday
+  },
+  {
+    weekNum: 6,
+    startDate: "10/11/2022", //Tuesday
+    endDate: "10/18/2022", //Tuesday
+  },
+  {
+    weekNum: 7,
+    startDate: "10/18/2022", //Tuesday
+    endDate: "10/25/2022", //Tuesday
   },
 ];

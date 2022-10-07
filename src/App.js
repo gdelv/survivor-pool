@@ -71,13 +71,25 @@ function App() {
     // console.log(team);
     if (team) {
       let recordColor =
-        week - team.wins < 2 ? "gold" : week - team.wins < 3 ? "red" : week - team.wins < 4 ? "green":"deepskyblue";
-      // return `${team.wins}-${team.ties}-${team.loss}`
-      return (
-        <span
-          style={{ color: recordColor }}
-        >{`${team.wins}-${team.ties}-${team.loss}`}</span>
-      );
+        week - team.wins < 2
+          ? "gold"
+          : week - team.wins < 3
+          ? "red"
+          : week - team.wins < 4
+          ? "green"
+          : "deepskyblue";
+      if (team.ties > 0) {
+        return (
+          <span
+            style={{ color: recordColor }}
+          >{`${team.wins}-${team.ties}-${team.loss}`}</span>
+        );
+      } else
+        return (
+          <span
+            style={{ color: recordColor }}
+          >{`${team.wins}-${team.loss}`}</span>
+        );
     }
   };
   return (
@@ -231,11 +243,11 @@ function App() {
       </p>
       <table style={{ width: "95%", height: "60vh", margin: "auto" }}>
         <tr>
-          <th style={{width:"6%"}}></th>
-          <th style={{width:"5%"}}>Week 2</th>
-          <th style={{width:"5%"}}>Week 3</th>
-          <th style={{width:"5%"}}>Week 4</th>
-          <th style={{width:"5%"}}>Week 5</th>
+          <th style={{ width: "6%" }}></th>
+          <th style={{ width: "5%" }}>Week 2</th>
+          <th style={{ width: "5%" }}>Week 3</th>
+          <th style={{ width: "5%" }}>Week 4</th>
+          <th style={{ width: "5%" }}>Week 5</th>
         </tr>
         {entries.map((entry) => (
           <tr key={entry.name}>
@@ -243,7 +255,8 @@ function App() {
               {entry.name}
             </td>
             {entry.picks.map((pick) => (
-              <td key={pick.teamChosen}
+              <td
+                key={pick.teamChosen}
                 className={
                   pick.isCorrect === null
                     ? "cell"

@@ -1,32 +1,85 @@
+/* * {
+  background-color: #181a1b;
+  color: white;
+} */
+.eliminated__team {
+  text-decoration: line-through;
+  color: red !important;
+}
+.gold {
+  color: gold !important;
+}
+.red {
+  color: red !important;
+}
+.blue {
+  color: blue !important;
+}
+
+body {
+  background-color: #181a1b;
+  color: white;
+}
 td {
   border:1px solid black;
   text-align: center;
   max-width: 20px;
+  color: white;
 }
 .cell {
   max-width: 20px;
+}
+p {
+  font-size: 24px;
+  margin: 0;
 }
 td:first-child { 
 	border: none;
   text-align: left;
   font-weight: 800;
+  color: white;
 }  
-tr:hover {background-color: pink;}
+tr:hover {background-color: rgb(255, 161, 78) !important;}
 tr:hover:first-child {background-color: none;}
 
 .red {
-	background: rgb(220, 106, 106);
+	background: #831f1f;
 }
 .green {
-	background: rgb(150, 225, 150);
+	background: #30671d;
 }
 .schedule-container {
   display: flex;
-  
+  text-align: center;
+  flex-direction: column;
+
 }
-.padding-left {
-  padding-left: 5%;
+.margin-left {
+  margin-left: 2%;
 }
 .align-center {
   text-align: center;
+}
+
+h1 {
+  padding: .5em;
+  margin: 0;
+  color: rgb(255, 161, 78);
+}
+h2 {
+  text-decoration: underline;
+  color: rgb(255, 161, 78);
+  margin: 0;
+}
+h6 {
+  padding: 0;
+  margin: 0;
+}
+@media (max-width: 650px) {
+  p {
+    font-size: 20px;
+  }
+  /* td {
+    font-size: 12px;
+  } */
 }

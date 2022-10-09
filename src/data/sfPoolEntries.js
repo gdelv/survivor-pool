@@ -27,7 +27,7 @@ export const entries = [
       },
       {
         teamChosen: "JAX",
-        isCorrect: null,
+        isCorrect: false,
       },
     ],
   },
@@ -49,7 +49,7 @@ export const entries = [
       },
       {
         teamChosen: "TEN",
-        isCorrect: null,
+        isCorrect: true,
       },
     ],
   },
@@ -71,7 +71,7 @@ export const entries = [
       },
       {
         teamChosen: "MIN",
-        isCorrect: null,
+        isCorrect: true,
       },
     ],
   },
@@ -93,7 +93,7 @@ export const entries = [
       },
       {
         teamChosen: "MIN",
-        isCorrect: null,
+        isCorrect: true,
       },
     ],
   },
@@ -115,7 +115,7 @@ export const entries = [
       },
       {
         teamChosen: "MIN",
-        isCorrect: null,
+        isCorrect: true,
       },
     ],
   },
@@ -211,6 +211,10 @@ export const entries = [
         teamChosen: "LAR",
         isCorrect: false,
       },
+      {
+        teamChosen: "KC",
+        isCorrect: null,
+      },
     ],
   },
   {
@@ -228,6 +232,10 @@ export const entries = [
       {
         teamChosen: "MIA",
         isCorrect: false,
+      },
+      {
+        teamChosen: "KC",
+        isCorrect: null,
       },
     ],
   },
@@ -249,7 +257,7 @@ export const entries = [
       },
       {
         teamChosen: "MIN",
-        isCorrect: null,
+        isCorrect: true,
       },
     ],
   },

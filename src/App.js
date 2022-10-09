@@ -3,6 +3,8 @@ import "./App.css";
 import { updatedEntries, weekMapping } from "./data/sfPoolEntries";
 import { db } from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
+import ScheduleCard from "./components/ScheduleCard";
+import Loading from "./components/Loading";
 
 function App() {
   const [week, setWeek] = useState(null);
@@ -13,6 +15,7 @@ function App() {
   const [firstWindowGames, setFirstWindowGames] = useState([]);
   const [secondWindowGames, setSecondWindowGames] = useState([]);
   const [allGames, setAllGames] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false)
   const entries = updatedEntries();
   useEffect(() => {
     const getSchedule = async () => {
@@ -34,7 +37,7 @@ function App() {
       const standingsSnapshot = await getDocs(collection(db, `Standings`));
       const allStandings = standingsSnapshot.docs.map((doc) => doc.data());
       setAllGames(allStandings);
-      // console.log(allStandings, "hi");
+      console.log(allStandings, "hi");
       let firstGames = [];
       let secondGames = [];
 
@@ -56,6 +59,7 @@ function App() {
       // console.log('first',firstGames);
       setFirstWindowGames(firstGames);
       setSecondWindowGames(secondGames);
+      setIsLoaded(true)
       return allGames;
     };
     if (week === null) {
@@ -65,165 +69,61 @@ function App() {
     // return () => {
     //   second
     // }
-  }, [week]);
-  const getTeamRecord = (teamStr) => {
-    let team = allGames.find((game) => game.teamCity === teamStr);
-    // console.log(team);
-    if (team) {
-      let recordColor =
-        week - team.wins < 2
-          ? "gold"
-          : week - team.wins < 3
-          ? "red"
-          : week - team.wins < 4
-          ? "green"
-          : "deepskyblue";
-      if (team.ties > 0) {
-        return (
-          <span
-            style={{ color: recordColor }}
-          >{`${team.wins}-${team.ties}-${team.loss}`}</span>
-        );
-      } else
-        return (
-          <span
-            style={{ color: recordColor }}
-          >{`${team.wins}-${team.loss}`}</span>
-        );
-    }
-  };
+  }, [week, isLoaded]);
   return (
     <div className="App">
       <h1 className="align-center">Week {week}</h1>
-      <div className="schedule-container">
-        <div className="margin-left">
+      {isLoaded ?  <div className="schedule-container">
+        <div>
           <h2>Thursday Game</h2>
-          <p>
-            <b>
-              {thursdayGame.awayTeam} ({getTeamRecord(thursdayGame.awayTeam)})
-            </b>{" "}
-            @{" "}
-            <b>
-              {thursdayGame.homeTeam} ({getTeamRecord(thursdayGame.homeTeam)})
-            </b>
-          </p>
-          <h6>{thursdayGame.ticketPrices}</h6>
-          <h6>
-            {thursdayGame.time} ({thursdayGame.tv})
-          </h6>
-          <h6>{thursdayGame.venue}</h6>
+          <ScheduleCard game={thursdayGame} allGames={allGames} week={week} />
         </div>
         {/* If 9:30am games show here */}
         {londonGame ? (
-          <div className="margin-left">
+          <div>
             <h2>Sunday Morning London Game</h2>
-            <p>
-              <b>
-                {londonGame.awayTeam} ({getTeamRecord(londonGame.awayTeam)})
-              </b>{" "}
-              @{" "}
-              <b>
-                {londonGame.homeTeam} ({getTeamRecord(londonGame.homeTeam)})
-              </b>
-            </p>
-            <h6>
-              {londonGame.ticketPrices !== "-" ? null : londonGame.ticketPrices}
-            </h6>
-            <h6>
-              {londonGame.time} ({londonGame.tv})
-            </h6>
-            <h6>{londonGame.venue}</h6>
+            <ScheduleCard game={londonGame} allGames={allGames} week={week} />
           </div>
         ) : null}
         <h2>1PM Games</h2>
-        <div className="margin-left">
+        <div>
           {firstWindowGames.map((game) => {
             return (
-              <div key={game.venue}>
-                <p>
-                  <b>
-                    {game.awayTeam} ({getTeamRecord(game.awayTeam)})
-                  </b>{" "}
-                  @{" "}
-                  <b>
-                    {game.homeTeam} ({getTeamRecord(game.homeTeam)})
-                  </b>
-                </p>
-                <h6>{game.ticketPrices === "-" ? null : game.ticketPrices}</h6>
-                <h6>
-                  {game.time} ({game.tv})
-                </h6>
-                <h6>{game.venue}</h6>
+              <div key={game.venue}
+              className="card-container"
+              >
+                <ScheduleCard game={game} allGames={allGames} week={week} />
               </div>
             );
           })}
         </div>
-        <div className="margin-left">
+        <div>
           <h2>4PM Games</h2>
           {secondWindowGames.map((game) => {
             return (
-              <div key={game.venue}>
-                <p>
-                  <b>
-                    {game.awayTeam} ({getTeamRecord(game.awayTeam)})
-                  </b>{" "}
-                  @{" "}
-                  <b>
-                    {game.homeTeam} ({getTeamRecord(game.homeTeam)})
-                  </b>
-                </p>
-                <h6>{game.ticketPrices === "-" ? null : game.ticketPrices}</h6>
-                <h6>
-                  {game.time} ({game.tv})
-                </h6>
-                <h6>{game.venue}</h6>
+              <div
+                key={game.venue}
+                className="card-container"
+              >
+                <ScheduleCard game={game} allGames={allGames} week={week} />
               </div>
             );
           })}
         </div>
         {snfGame ? (
-          <div className="margin-left">
+          <div>
             <h2>Sunday Night Football</h2>
-            <p>
-              <b>
-                {snfGame.awayTeam} ({getTeamRecord(snfGame.awayTeam)})
-              </b>{" "}
-              @{" "}
-              <b>
-                {snfGame.homeTeam} ({getTeamRecord(snfGame.homeTeam)})
-              </b>
-            </p>
-            <h6>
-              {snfGame.ticketPrices === "-" ? null : snfGame.ticketPrices}
-            </h6>
-            <h6>
-              {snfGame.time} ({snfGame.tv})
-            </h6>
-            <h6>{snfGame.venue}</h6>
+            <ScheduleCard game={snfGame} allGames={allGames} week={week} />
           </div>
         ) : null}
         {mnfGame ? (
-          <div className="margin-left">
+          <div>
             <h2>Monday Night Football</h2>
-            <p>
-              <b>
-                {mnfGame.awayTeam} ({getTeamRecord(mnfGame.awayTeam)})
-              </b>{" "}
-              @{" "}
-              <b>
-                {mnfGame.homeTeam} ({getTeamRecord(mnfGame.homeTeam)})
-              </b>
-            </p>
-            <h6>
-              {mnfGame.ticketPrices === "-" ? null : mnfGame.ticketPrices}
-            </h6>
-            <h6>
-              {mnfGame.time} ({mnfGame.tv})
-            </h6>
-            <h6>{mnfGame.venue}</h6>
+            <ScheduleCard game={mnfGame} allGames={allGames} week={week} />
           </div>
         ) : null}
-      </div>
+      </div>:<Loading/>}
+     
       <br></br>
       <h1 className="align-center">Weekly Picks</h1>
       <h2 className="align-center">Rules</h2>

@@ -6,4 +6,4 @@ SURVIVE
 - [x] Read NFL Schedule from Firebase
 - [x] Look up week # by date
 - [x] Show eliminated teams
-- [ ] Show team records
+- [x] Show team records

@@ -80,6 +80,12 @@ h6 {
 .card-container:last-child {
   border: none;
 }
+.data-table {
+  width: "95%";
+  height: "60vh";
+  margin: "auto";
+  padding: .5em 0 1em;
+}
 @media (max-width: 650px) {
   p {
     font-size: 20px;

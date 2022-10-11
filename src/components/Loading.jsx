@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Loading() {
+export default function Loading(props) {
   return (
     <div style={{background: "#ffa14e", textAlign: "center", paddingTop: "1em", color:"black", fontWeight: "800" }}>
-        Loading Schedule...
+        {props.loadingMsg}
 <lord-icon
     src="https://cdn.lordicon.com/xjovhxra.json"
     trigger="loop"

@@ -11,7 +11,7 @@ import Rules from "./components/Rules";
 function App() {
   const [week, setWeek] = useState(null);
   const [thursdayGame, setThursdayGame] = useState({});
-  const [londonGame, setLondonGame] = useState(null);
+  const [londonGame, setLondonGame] = useState({});
   const [mnfGame, setMnfGame] = useState({});
   const [snfGame, setSnfGame] = useState({});
   const [firstWindowGames, setFirstWindowGames] = useState([]);
@@ -84,7 +84,7 @@ function App() {
       const entriesSnapshot = await getDocs(collection(db, `Entries`));
       let allEntries = entriesSnapshot.docs.map((doc) => doc.data());
       allEntries = updatedEntries(allEntries);
-      setEntries(allEntries)
+      setEntries(allEntries);
     };
     if (week === null) {
       getSchedule(); //call getSchedule based on which weekNum it is
@@ -101,12 +101,14 @@ function App() {
             <ScheduleCard game={thursdayGame} allGames={allGames} week={week} />
           </div>
           {/* If 9:30am games show here */}
-          {londonGame ? (
+          {londonGame.length ? (
             <div>
               <h2>Sunday Morning London Game</h2>
               <ScheduleCard game={londonGame} allGames={allGames} week={week} />
             </div>
-          ) : <div>No London Game This Week</div>}
+          ) : (
+            <div>No London Game This Week</div>
+          )}
           <h2>1PM Games</h2>
           <div>
             {firstWindowGames.map((game) => {
@@ -141,14 +143,24 @@ function App() {
           ) : null}
         </div>
       ) : (
-        <Loading loadingMsg="Loading schedule..."/>
+        <Loading loadingMsg="Loading schedule..." />
       )}
 
       <br></br>
-      <Rules/>
+      <Rules />
       <h1 className="align-center">Weekly Picks</h1>
-      
-      <Table entries={entries} week={week}/>
+
+      <Table
+        entries={entries}
+        week={week}
+        londonGame={londonGame}
+        thursdayGame={thursdayGame}
+        firstWindowGames={firstWindowGames}
+        secondWindowGames={secondWindowGames}
+        snfGame={snfGame}
+        mnfGame={mnfGame}
+        allGames={allGames}
+      />
     </div>
   );
 }

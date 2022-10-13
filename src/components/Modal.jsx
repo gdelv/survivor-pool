@@ -255,6 +255,9 @@ export default function Modal(props) {
       closeModal();
     } catch (error) {
       console.log(error);
+      alert('Pick Did Not Save - Contact Giusseppe')
+    } finally {
+      alert('Entry Saved Good Luck!')
     }
   };
 

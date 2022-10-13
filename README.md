@@ -21,6 +21,6 @@ SURVIVE
 - [x] Inside Datatable if no element renders (Post new entries)
     - [x] Display action that renders Pick Your Team Modal
 - [x] Render Modal
-    - [ ] Post pick to Firebase
+    - [x] Post pick to Firebase
 - [ ] Convert Week Mapping into a Firebase collection - (Optional)
     - Query it inside App.js

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
-import {doc, updateDoc } from 'firebase/firestore'
+import { doc, updateDoc } from "firebase/firestore";
 import SelectCard from "./SelectCard";
 
 export default function Modal(props) {
@@ -240,17 +240,22 @@ export default function Modal(props) {
   const saveSelection = async () => {
     console.log(findTeamAbbrev(selectedTeam));
     //get entry of current nameSelected
-    let findArr = entries.find(entry => entry.name === nameSelected)
+    let findArr = entries.find((entry) => entry.name === nameSelected);
     console.log(findArr);
     //add to picks arr current {teamChosen: selectedTeam, isCorrect: null} and
     findArr.picks.push({
       teamChosen: findTeamAbbrev(selectedTeam),
-      isCorrect: null
-    })
-    const entryRef = doc(db, "Entries", nameSelected);
-    await updateDoc(entryRef, {
-        picks: findArr.picks
+      isCorrect: null,
     });
+    const entryRef = doc(db, "Entries", nameSelected);
+    try {
+      await updateDoc(entryRef, {
+        picks: findArr.picks,
+      });
+      closeModal();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

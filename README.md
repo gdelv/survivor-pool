@@ -9,7 +9,7 @@ SURVIVE
 - [x] Show team records (Get NFL standings - after running node)
 - [x] Show firebase entries
 - [x] Refactor code
-- [ ] Add to NFL standings webscraper (Get isCorrect dynamically - after running node)
+- [x] Add to NFL standings webscraper (Get isCorrect dynamically - after running node)
     - Get Previous week results and post to Week-#-Result
     - Query Previous week results && Previous week entries
         - Loop entries 
@@ -24,3 +24,4 @@ SURVIVE
     - [x] Post pick to Firebase
 - [ ] Convert Week Mapping into a Firebase collection - (Optional)
     - Query it inside App.js
+- [ ] Fix weekly game shown bug

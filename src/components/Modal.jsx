@@ -194,6 +194,7 @@ export default function Modal(props) {
     return teamFound.abbrev;
   };
   const checkTeam = (arr, game) => {
+    // console.log(game, 'this is the game inside checkTeam');
     let homeTeamAbbrev = findTeamAbbrev(game.homeTeam);
     let awayTeamAbbrev = findTeamAbbrev(game.awayTeam);
     arr.forEach((pick) => {
@@ -203,6 +204,28 @@ export default function Modal(props) {
       } else if (pick.teamChosen === awayTeamAbbrev) {
         game.awayTeamDisabled = true;
         game.homeTeamDisabled = false;
+      }
+      let dayOfTheWeek = new Date().getDay(); // 0=SUNDAY
+      // IF today = THURSDAY @ game.time
+      if (dayOfTheWeek === 4) {
+        let year = new Date().getFullYear();
+        let month = new Date().getMonth();
+        let date = new Date().getDate();
+        let thursdayExpiredDate = new Date(year, month, date, 20, 16); // 8:16 PM
+        let currentDate = new Date();
+        if (currentDate > thursdayExpiredDate) {
+          if (game.tv === "AMZN") {
+            game.awayTeamDisabled = true;
+            game.homeTeamDisabled = true;
+          }
+        }
+      }
+      // IF today = Friday/Sat/Sun/Monday (5,6,0,1)
+      else if (dayOfTheWeek > 4 || dayOfTheWeek === 0 || dayOfTheWeek === 1) {
+        if (game.tv === "AMZN") {
+          game.awayTeamDisabled = true;
+          game.homeTeamDisabled = true;
+        }
       }
     });
   };
@@ -255,9 +278,9 @@ export default function Modal(props) {
       closeModal();
     } catch (error) {
       console.log(error);
-      alert('Pick Did Not Save - Contact Giusseppe')
+      alert("Pick Did Not Save - Contact Giusseppe");
     } finally {
-      alert('Entry Saved Good Luck!')
+      alert("Entry Saved Good Luck!");
     }
   };
 

@@ -207,11 +207,13 @@ export default function Modal(props) {
       }
       let dayOfTheWeek = new Date().getDay(); // 0=SUNDAY
       // IF today = THURSDAY @ game.time
+      //disable amazon game start
+      let year = new Date().getFullYear();
+      let month = new Date().getMonth();
+      let date = new Date().getDate();
+      //If Thursday check for Thursday Game Start Time
       if (dayOfTheWeek === 4) {
-        let year = new Date().getFullYear();
-        let month = new Date().getMonth();
-        let date = new Date().getDate();
-        let thursdayExpiredDate = new Date(year, month, date, 20, 16); // 8:16 PM
+        let thursdayExpiredDate = new Date(year, month, date, 20, 15); // 8:15 PM
         let currentDate = new Date();
         if (currentDate > thursdayExpiredDate) {
           if (game.tv === "AMZN") {
@@ -220,13 +222,70 @@ export default function Modal(props) {
           }
         }
       }
-      // IF today = Friday/Sat/Sun/Monday (5,6,0,1)
-      else if (dayOfTheWeek > 4 || dayOfTheWeek === 0 || dayOfTheWeek === 1) {
+      // IF today = Friday/Sat (5,6) disable AMZN game
+      if (dayOfTheWeek > 4) {
         if (game.tv === "AMZN") {
           game.awayTeamDisabled = true;
           game.homeTeamDisabled = true;
         }
       }
+      //disable amazon game end
+      // disable sunday games start
+      if (dayOfTheWeek === 0) {
+        //disable amazon game
+        if (game.tv === "AMZN") {
+          game.awayTeamDisabled = true;
+          game.homeTeamDisabled = true;
+        }
+        let sundayFirstExpiredDate = new Date(year, month, date, 13, 0); // 1:00 PM
+        let sundaySecondExpiredDate = new Date(year, month, date, 16, 5); // 4:05 PM
+        let sundayThirdExpiredDate = new Date(year, month, date, 16, 25); // 4:25 PM
+        let sundayFourthExpiredDate = new Date(year, month, date, 20, 20); // 8:20 PM
+        let currentDate = new Date();
+        if (currentDate > sundayFirstExpiredDate) {
+          if (game.time === "1:00 pm") {
+            //disable all 1pm games after 1:00
+            game.awayTeamDisabled = true;
+            game.homeTeamDisabled = true;
+          }
+        } else if (currentDate > sundaySecondExpiredDate) {
+          if (game.time === "4:05 pm") {
+            //disable all 4:05pm games after 4:05
+            game.awayTeamDisabled = true;
+            game.homeTeamDisabled = true;
+          }
+        } else if (currentDate > sundayThirdExpiredDate) {
+          if (game.time === "4:25pm") {
+            //disable all 4:25pm games after 4:25
+            game.awayTeamDisabled = true;
+            game.homeTeamDisabled = true;
+          }
+        } else if (currentDate > sundayFourthExpiredDate) {
+          if (game.time === "8:20pm" && game.tv === "NBC") {
+            //disable SNF game after 8:20
+            game.awayTeamDisabled = true;
+            game.homeTeamDisabled = true;
+          }
+        }
+      }
+      // disable sunday games end
+      // disable sunday 1pm game start
+      // disable monday game start
+      if (dayOfTheWeek === 1) {
+        let mondayExpiredDate = new Date(year, month, date, 20, 15); // 8:15 PM
+        let currentDate = new Date();
+        if (currentDate > mondayExpiredDate) {
+          //disable MNF game after 8:15
+          if (game.time === "8:15pm" && game.tv === "ESPN") {
+            game.awayTeamDisabled = true;
+            game.homeTeamDisabled = true;
+          }
+        } else if (game.time !== "8:15pm" && game.tv !== "ESPN")  {
+            game.awayTeamDisabled = true;
+            game.homeTeamDisabled = true;
+        }
+      }
+      // disable monday game end
     });
   };
   const getUpdatedSchedule = () => {

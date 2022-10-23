@@ -24,4 +24,4 @@ SURVIVE
     - [x] Post pick to Firebase
 - [ ] Convert Week Mapping into a Firebase collection - (Optional)
     - Query it inside App.js
-- [ ] Fix weekly game shown bug
+- [x] Disable allowed games to pick based on date

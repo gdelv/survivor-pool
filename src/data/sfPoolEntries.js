@@ -366,4 +366,34 @@ export const weekMapping = [
     startDate: "10/18/2022", //Tuesday
     endDate: "10/25/2022", //Tuesday
   },
+  {
+    weekNum: 8,
+    startDate: "10/25/2022", //Tuesday
+    endDate: "11/1/2022", //Tuesday
+  },
+  {
+    weekNum: 8,
+    startDate: "11/1/2022", //Tuesday
+    endDate: "11/8/2022", //Tuesday
+  },
+  {
+    weekNum: 9,
+    startDate: "11/8/2022", //Tuesday
+    endDate: "11/15/2022", //Tuesday
+  },
+  {
+    weekNum: 10,
+    startDate: "11/15/2022", //Tuesday
+    endDate: "11/22/2022", //Tuesday
+  },
+  {
+    weekNum: 11,
+    startDate: "11/22/2022", //Tuesday
+    endDate: "11/29/2022", //Tuesday
+  },
+  {
+    weekNum: 12,
+    startDate: "11/29/2022", //Tuesday
+    endDate: "12/6/2022", //Tuesday
+  },
 ];

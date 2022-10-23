@@ -194,7 +194,6 @@ export default function Modal(props) {
     return teamFound.abbrev;
   };
   const checkTeam = (arr, game) => {
-    // console.log(game, 'this is the game inside checkTeam');
     let homeTeamAbbrev = findTeamAbbrev(game.homeTeam);
     let awayTeamAbbrev = findTeamAbbrev(game.awayTeam);
     arr.forEach((pick) => {
@@ -242,45 +241,46 @@ export default function Modal(props) {
         let sundayThirdExpiredDate = new Date(year, month, date, 16, 25); // 4:25 PM
         let sundayFourthExpiredDate = new Date(year, month, date, 20, 20); // 8:20 PM
         let currentDate = new Date();
-        if (currentDate > sundayFirstExpiredDate) {
-          if (game.time === "1:00 pm") {
-            //disable all 1pm games after 1:00
+
+        if (game.time === "1:00 pm") {
+            if (currentDate > sundayFirstExpiredDate) {
+            //disable all 1pm games after 1:00 (WORKS)
             game.awayTeamDisabled = true;
             game.homeTeamDisabled = true;
           }
-        } else if (currentDate > sundaySecondExpiredDate) {
-          if (game.time === "4:05 pm") {
-            //disable all 4:05pm games after 4:05
+        } 
+        if (game.time === "4:05 pm") {
+            if (currentDate > sundaySecondExpiredDate) {
+            //disable all 4:05pm games after 4:05 (WORKS)
             game.awayTeamDisabled = true;
             game.homeTeamDisabled = true;
           }
-        } else if (currentDate > sundayThirdExpiredDate) {
-          if (game.time === "4:25pm") {
-            //disable all 4:25pm games after 4:25
+        } 
+        if (game.time === "4:25 pm") {
+            if (currentDate > sundayThirdExpiredDate) {
+            //disable all 4:25pm games after 4:25 (WORKS)
             game.awayTeamDisabled = true;
             game.homeTeamDisabled = true;
           }
-        } else if (currentDate > sundayFourthExpiredDate) {
-          if (game.time === "8:20pm" && game.tv === "NBC") {
+        }
+        if (game.time === "8:20 pm" && game.tv === "NBC") {
+            if (currentDate > sundayFourthExpiredDate) {
             //disable SNF game after 8:20
             game.awayTeamDisabled = true;
             game.homeTeamDisabled = true;
           }
         }
       }
-      // disable sunday games end
-      // disable sunday 1pm game start
-      // disable monday game start
       if (dayOfTheWeek === 1) {
         let mondayExpiredDate = new Date(year, month, date, 20, 15); // 8:15 PM
         let currentDate = new Date();
-        if (currentDate > mondayExpiredDate) {
-          //disable MNF game after 8:15
-          if (game.time === "8:15pm" && game.tv === "ESPN") {
+        if (game.time === "8:15pm" && game.tv === "ESPN") {
+          if (currentDate > mondayExpiredDate) {
+              //disable MNF game after 8:15
             game.awayTeamDisabled = true;
             game.homeTeamDisabled = true;
           }
-        } else if (game.time !== "8:15pm" && game.tv !== "ESPN")  {
+        } else {
             game.awayTeamDisabled = true;
             game.homeTeamDisabled = true;
         }
@@ -320,10 +320,8 @@ export default function Modal(props) {
     setSelectedTeam(name);
   };
   const saveSelection = async () => {
-    console.log(findTeamAbbrev(selectedTeam));
     //get entry of current nameSelected
     let findArr = entries.find((entry) => entry.name === nameSelected);
-    console.log(findArr);
     //add to picks arr current {teamChosen: selectedTeam, isCorrect: null} and
     findArr.picks.push({
       teamChosen: findTeamAbbrev(selectedTeam),

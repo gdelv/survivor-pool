@@ -274,7 +274,7 @@ export default function Modal(props) {
       if (dayOfTheWeek === 1) {
         let mondayExpiredDate = new Date(year, month, date, 20, 15); // 8:15 PM
         let currentDate = new Date();
-        if (game.time === "8:15pm" && game.tv === "ESPN") {
+        if (game.time === "8:15 pm" && game.tv === "ESPN") {
           if (currentDate > mondayExpiredDate) {
               //disable MNF game after 8:15
             game.awayTeamDisabled = true;

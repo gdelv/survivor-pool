@@ -101,13 +101,13 @@ function App() {
   const createEntry = async () => {
     //post to Firebase
     try {
-      const capitalize = str => {
-        if (typeof str === 'string') {
-          return str.replace(/^\w/, c => c.toUpperCase())
+      const capitalize = (str) => {
+        if (typeof str === "string") {
+          return str.replace(/^\w/, (c) => c.toUpperCase());
         } else {
-          return ''
+          return "";
         }
-      }
+      };
       let data = {
         name: capitalize(entryName),
         isEliminated: false,
@@ -130,23 +130,29 @@ function App() {
         allEntries = updatedEntries(allEntries);
         setEntries(allEntries);
       };
-      getEntries()
+      getEntries();
       alert("Entry Created! Good Luck!");
-      let element = document.getElementById("pick-table")
+      let element = document.getElementById("pick-table");
       element.scrollIntoView();
     } catch (e) {
       alert("Uh oh! Entry not created, contact Giusseppe.");
-      console.log(e, 'Error Posted');
+      console.log(e, "Error Posted");
     }
   };
   return (
     <div className="App">
       <h1 className="align-center">Week {week}</h1>
       {/* Create your entry to be disabled at week = 9*/}
+      <h2 className="align-center">
+        ${entries ? entries.length * 5 : null} Total Pool Prize Money
+      </h2>
       {week === 8 ? (
         <div className="entry-input card-container">
-          <h2>Create Your Entry Here ($5 per entry - Max 4 entries)</h2>
-          <label for="name">Entry Name (2 to 12 characters): </label>
+          <h2>Create Your Entry Here</h2>
+          <h2>($5 per entry - Max 4 entries)</h2>
+          <h2>
+            <label for="name">Entry Name (2 to 12 characters)</label>
+          </h2>
 
           <input
             type="text"

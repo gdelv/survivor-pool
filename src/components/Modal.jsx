@@ -327,18 +327,19 @@ export default function Modal(props) {
       teamChosen: findTeamAbbrev(selectedTeam),
       isCorrect: null,
     });
-    const entryRef = doc(db, "Entries", nameSelected);
+    const entryRef = doc(db, "MoneyEntries", nameSelected);
     try {
       await updateDoc(entryRef, {
         picks: findArr.picks,
-      });
-      closeModal();
+      })
+      .then(() => {
+        closeModal();
+        alert("Pick Saved Good Luck!");
+      })
     } catch (error) {
       console.log(error);
       alert("Pick Did Not Save - Contact Giusseppe");
-    } finally {
-      alert("Entry Saved Good Luck!");
-    }
+    } 
   };
 
   return (

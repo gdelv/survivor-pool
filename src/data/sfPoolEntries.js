@@ -322,12 +322,10 @@ export const updatedEntries = () => {
     const element = entries[i];
     element.isEliminated = checkElimination(element.picks);
     finalArr.push(element);
-    // console.log(finalArr, "final");
   }
   return finalArr;
 };
 
-// console.log(updatedEntries(), "new entries");
 
 //Add startDate and endDate of each NFL Week
 export const weekMapping = [

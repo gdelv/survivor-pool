@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { weekMapping } from "./data/sfPoolEntries";
 import { db } from "./firebase";
-import { collection, getDocs } from "firebase/firestore";
+// import firebase from "firebase";
+// import { doc, addDoc } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import ScheduleCard from "./components/ScheduleCard";
 import Loading from "./components/Loading";
 import Table from "./components/Table";
@@ -19,6 +21,7 @@ function App() {
   const [allGames, setAllGames] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [entries, setEntries] = useState(null);
+  const [entryName, setEntryName] = useState("");
   const checkElimination = (arr) => {
     let count = 0;
     arr.forEach((entry) => {
@@ -81,7 +84,7 @@ function App() {
       return allGames;
     };
     const getEntries = async () => {
-      const entriesSnapshot = await getDocs(collection(db, `Entries`));
+      const entriesSnapshot = await getDocs(collection(db, `MoneyEntries`));
       let allEntries = entriesSnapshot.docs.map((doc) => doc.data());
       allEntries = updatedEntries(allEntries);
       setEntries(allEntries);
@@ -91,9 +94,73 @@ function App() {
       getEntries(); //call to retrieve all entries
     }
   }, [week, isLoaded, entries]);
+  const handleInput = (e) => {
+    let entryName = e.target.value;
+    setEntryName(entryName);
+  };
+  const createEntry = async () => {
+    //post to Firebase
+    try {
+      const capitalize = str => {
+        if (typeof str === 'string') {
+          return str.replace(/^\w/, c => c.toUpperCase())
+        } else {
+          return ''
+        }
+      }
+      let data = {
+        name: capitalize(entryName),
+        isEliminated: false,
+        picks: [],
+      };
+      // const moneyEntriesRe÷f = collection(db, 'MoneyEntries')
+      await setDoc(doc(db, "MoneyEntries", entryName), data);
+      const updatedEntries = (arr) => {
+        let finalArr = [];
+        for (let i = 0; i < arr.length; i++) {
+          const element = arr[i];
+          element.isEliminated = checkElimination(element.picks);
+          finalArr.push(element);
+        }
+        return finalArr;
+      };
+      const getEntries = async () => {
+        const entriesSnapshot = await getDocs(collection(db, `MoneyEntries`));
+        let allEntries = entriesSnapshot.docs.map((doc) => doc.data());
+        allEntries = updatedEntries(allEntries);
+        setEntries(allEntries);
+      };
+      getEntries()
+      alert("Entry Created! Good Luck!");
+      let element = document.getElementById("pick-table")
+      element.scrollIntoView();
+    } catch (e) {
+      alert("Uh oh! Entry not created, contact Giusseppe.");
+      console.log(e, 'Error Posted');
+    }
+  };
   return (
     <div className="App">
       <h1 className="align-center">Week {week}</h1>
+      {/* Create your entry to be disabled at week = 9*/}
+      {week === 8 ? (
+        <div className="entry-input card-container">
+          <h2>Create Your Entry Here ($5 per entry - Max 4 entries)</h2>
+          <label for="name">Entry Name (2 to 12 characters): </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            minLength="2"
+            maxLength="12"
+            size="12"
+            onChange={handleInput}
+          />
+          <button onClick={createEntry}>Create Entry</button>
+        </div>
+      ) : null}
       {isLoaded ? (
         <div className="schedule-container">
           <div>
@@ -101,9 +168,9 @@ function App() {
             <ScheduleCard game={thursdayGame} allGames={allGames} week={week} />
           </div>
           {/* If 9:30am games show here */}
-          {londonGame.length ? (
+          {londonGame ? (
             <div>
-              <h2>Sunday Morning London Game</h2>
+              <h2>Sunday Morning Munich Game</h2>
               <ScheduleCard game={londonGame} allGames={allGames} week={week} />
             </div>
           ) : (

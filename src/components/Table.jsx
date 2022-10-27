@@ -4,11 +4,22 @@ import Modal from "./Modal";
 
 export default function Table(props) {
   const [isModalOpen, setisModalOpen] = useState(false);
-  const [nameSelected, setNameSelected] = useState('')
-  const { entries, londonGame, thursdayGame, firstWindowGames, secondWindowGames, snfGame, mnfGame, allGames, week } = props;
+  const [nameSelected, setNameSelected] = useState("");
+  const {
+    entries,
+    londonGame,
+    thursdayGame,
+    firstWindowGames,
+    secondWindowGames,
+    snfGame,
+    mnfGame,
+    allGames,
+    week,
+  } = props;
+  const STARTING_SURVIVOR_WEEK = 8; //Starting week 8
   const renderWeekColumns = (num) => {
     let arr = [];
-    for (let i = 2; i < num + 1; i++) {
+    for (let i = STARTING_SURVIVOR_WEEK; i < num + 1; i++) {
       arr.push(<th style={{ width: "5%" }}>Week {i}</th>);
     }
     return arr;
@@ -16,16 +27,15 @@ export default function Table(props) {
   const toggleModal = (name) => {
     setisModalOpen(!isModalOpen);
     //pass name of row clicked
-    setNameSelected(name)
+    setNameSelected(name);
   };
   const renderModalLink = (arr, isEliminated) => {
     let finalArr = [];
     let currentWeek = week;
-    // console.log(arr, 'this is the arr');
-    for (let i = 0; i < currentWeek - 1; i++) {
+    for (let i = STARTING_SURVIVOR_WEEK; i < currentWeek + 1; i++) {
       //current week = 6
       // render 5x
-      let pick = arr.picks[i];
+      let pick = arr.picks[i - STARTING_SURVIVOR_WEEK];
       //if pick is found in the entry.picks arr
       if (pick) {
         finalArr.push(
@@ -69,7 +79,7 @@ export default function Table(props) {
   };
   return (
     <>
-      <table className="data-table">
+      <table className="data-table" id="pick-table">
         {entries ? (
           <tr>
             <th style={{ width: "9%" }}></th>

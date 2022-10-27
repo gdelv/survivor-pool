@@ -170,3 +170,9 @@ input[type="radio"][disabled]+label {
     font-size: 12px;
   } */
 }
+.entry-input {
+  text-align: center;
+  padding: 2em;
+  /* display: flex;
+  flex-direction: column; */
+}

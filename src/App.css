@@ -1,32 +1,172 @@
+/* * {
+  background-color: #181a1b;
+  color: white;
+} */
+.eliminated__team {
+  text-decoration: line-through;
+  color: red !important;
+}
+
+.gold {
+  color: gold !important;
+}
+
+.red {
+  color: red !important;
+}
+
+.blue {
+  color: blue !important;
+}
+
+body {
+  background-color: #181a1b;
+  color: white;
+}
+
 td {
-  border:1px solid black;
+  border: 1px solid black;
   text-align: center;
   max-width: 20px;
+  color: white;
 }
+
 .cell {
   max-width: 20px;
 }
-td:first-child { 
-	border: none;
+
+p {
+  font-size: 24px;
+  margin: 0;
+}
+
+td:first-child {
+  border: none;
   text-align: left;
   font-weight: 800;
-}  
-tr:hover {background-color: pink;}
-tr:hover:first-child {background-color: none;}
+  color: white;
+}
+
+tr:hover {
+  background-color: rgb(255, 161, 78) !important;
+}
+
+tr:hover:first-child {
+  background-color: none;
+}
 
 .red {
-	background: rgb(220, 106, 106);
+  background: #831f1f;
 }
+
 .green {
-	background: rgb(150, 225, 150);
+  background: #30671d;
 }
+
 .schedule-container {
   display: flex;
-  
+  text-align: center;
+  flex-direction: column;
+
 }
-.padding-left {
-  padding-left: 5%;
-}
+
 .align-center {
   text-align: center;
+}
+
+h1 {
+  padding: .5em;
+  margin: 0;
+  color: rgb(255, 161, 78);
+}
+
+h2 {
+  text-decoration: underline;
+  color: rgb(255, 161, 78);
+  margin: 0;
+}
+
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+.card-container {
+  border-bottom: 1px solid rgb(255, 161, 78);
+  padding: 1em;
+  margin-bottom: .25em;
+}
+
+.card-container:last-child {
+  border: none;
+}
+
+.data-table {
+  width: "95%";
+  height: "60vh";
+  margin: "auto";
+  padding: .5em 0 1em;
+}
+
+/* Modal CSS Start */
+.modal {
+  width: 90%;
+  height: 90%;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  background: #eee;
+  border: 1px solid #ccc;
+  transition: 1.1s ease-out;
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+  overflow-y: scroll;
+}
+
+.modal h2 {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+  margin: 0;
+}
+
+.content {
+  padding: 1rem;
+  color: black;
+}
+
+.actions {
+  border-top: 1px solid #ccc;
+  background: #eee;
+  padding: .5rem 1rem;
+}
+
+.actions button {
+  border: 0;
+  background: rgb(255, 161, 78);
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  font-size: .8rem;
+  line-height: 1;
+}
+
+label {
+  font-size: 14px;
+}
+
+input[type="radio"][disabled]+label {
+  color: rgb(180, 177, 177);
+  text-decoration: line-through;
+}
+
+/* Modal CSS End */
+@media (max-width: 650px) {
+  p {
+    font-size: 20px;
+  }
+
+  /* td {
+    font-size: 12px;
+  } */
 }

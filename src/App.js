@@ -40,7 +40,7 @@ function App() {
     };
     const getSchedule = async () => {
       const todayDate = new Date();
-      let weekNumberFound = 8;
+      let weekNumberFound;
       weekMapping.forEach((week) => {
         if (
           todayDate < new Date(week.endDate) &&

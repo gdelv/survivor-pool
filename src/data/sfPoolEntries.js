@@ -333,67 +333,67 @@ export const updatedEntries = () => {
 export const weekMapping = [
   {
     weekNum: 1,
-    startDate: "8/20/22", //Tuesday
-    endDate: "9/12/2022", //Monday
+    startDate: "8/20/23", //Tuesday
+    endDate: "9/11/2023", //Monday
   },
   {
     weekNum: 2,
-    startDate: "9/13/2022", //Tuesday
-    endDate: "9/19/2022", //Monday
+    startDate: "9/12/2023", //Tuesday
+    endDate: "9/18/2023", //Monday
   },
   {
     weekNum: 3,
-    startDate: "9/20/2022", //Tuesday
-    endDate: "9/26/2022", //Monday
+    startDate: "9/19/2023", //Tuesday
+    endDate: "9/25/2023", //Monday
   },
   {
     weekNum: 4,
-    startDate: "9/27/2022", //Tuesday
-    endDate: "10/4/2022", //Tuesday
+    startDate: "9/26/2023", //Tuesday
+    endDate: "10/2/2023", //Monday
   },
   {
     weekNum: 5,
-    startDate: "10/4/2022", //Tuesday
-    endDate: "10/11/2022", //Tuesday
+    startDate: "10/3/2023", //Tuesday
+    endDate: "10/9/2023", //Monday
   },
   {
     weekNum: 6,
-    startDate: "10/11/2022", //Tuesday
-    endDate: "10/18/2022", //Tuesday
+    startDate: "10/10/2023", //Tuesday
+    endDate: "10/16/2023", //Monday
   },
   {
     weekNum: 7,
-    startDate: "10/18/2022", //Tuesday
-    endDate: "10/25/2022", //Tuesday
+    startDate: "10/17/2023", //Tuesday
+    endDate: "10/23/2023", //Monday
   },
   {
     weekNum: 8,
-    startDate: "10/25/2022", //Tuesday
-    endDate: "11/1/2022", //Tuesday
+    startDate: "10/24/2023", //Tuesday
+    endDate: "10/30/2023", //Monday
   },
   {
     weekNum: 8,
-    startDate: "11/1/2022", //Tuesday
-    endDate: "11/8/2022", //Tuesday
+    startDate: "10/31/2023", //Tuesday
+    endDate: "11/6/2023", //Monday
   },
   {
     weekNum: 9,
-    startDate: "11/8/2022", //Tuesday
-    endDate: "11/15/2022", //Tuesday
+    startDate: "11/7/2023", //Tuesday
+    endDate: "11/13/2023", //Monday
   },
   {
     weekNum: 10,
-    startDate: "11/15/2022", //Tuesday
-    endDate: "11/22/2022", //Tuesday
+    startDate: "11/14/2023", //Tuesday
+    endDate: "11/20/2023", //Monday
   },
   {
     weekNum: 11,
-    startDate: "11/22/2022", //Tuesday
-    endDate: "11/29/2022", //Tuesday
+    startDate: "11/21/2023", //Tuesday
+    endDate: "11/27/2023", //Monday
   },
   {
     weekNum: 12,
-    startDate: "11/29/2022", //Tuesday
-    endDate: "12/6/2022", //Tuesday
+    startDate: "11/28/2023", //Tuesday
+    endDate: "12/4/2023", //Monday
   },
 ];

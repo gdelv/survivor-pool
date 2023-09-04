@@ -8,7 +8,7 @@ export default function Table(props) {
   const { entries, londonGame, thursdayGame, firstWindowGames, secondWindowGames, snfGame, mnfGame, allGames, week } = props;
   const renderWeekColumns = (num) => {
     let arr = [];
-    for (let i = 2; i < num + 1; i++) {
+    for (let i = 1; i < num + 1; i++) {
       arr.push(<th style={{ width: "5%" }}>Week {i}</th>);
     }
     return arr;
@@ -21,8 +21,10 @@ export default function Table(props) {
   const renderModalLink = (arr, isEliminated) => {
     let finalArr = [];
     let currentWeek = week;
-    // console.log(arr, 'this is the arr');
-    for (let i = 0; i < currentWeek - 1; i++) {
+    console.log(arr, 'this is the arr');
+    console.log(currentWeek, 'this is the week');
+
+    for (let i = 1; i < currentWeek + 1; i++) {
       //current week = 6
       // render 5x
       let pick = arr.picks[i];

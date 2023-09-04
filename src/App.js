@@ -84,6 +84,7 @@ function App() {
       const entriesSnapshot = await getDocs(collection(db, `Entries`));
       let allEntries = entriesSnapshot.docs.map((doc) => doc.data());
       allEntries = updatedEntries(allEntries);
+      console.log(allEntries, 'ENTRIES');
       setEntries(allEntries);
     };
     if (week === null) {
